@@ -1,9 +1,12 @@
+
+
 console.log("hi i am mimi ");
 //const cowsay = require("cowsay");
 //const http=require("http");
 const chalk=require("chalk").default;
 const express = require('express');
 const app = express();
+app.use(express.json())
 chalk.level = 1;
 const studentsRouter = require('./routes/students');
 const coursesRouter = require('./routes/courses');
@@ -20,6 +23,7 @@ res.send("<h1>ברוכה הבאה לשרת הניהול שלי</h1><p>זהו ש�
 });
 app.use('/students', studentsRouter);
 app.use('/courses', coursesRouter);
+
 app.listen(3000,function(){
     console.log(chalk.green.bold("🚀 השרת פועל בהצלחה ומקשיב בפורט 3000!"));
     console.log(chalk.yellow("פתח דפדפן וכנס לכתובת: localhost:3000"));
